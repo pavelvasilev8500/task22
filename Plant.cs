@@ -11,15 +11,11 @@ namespace Wildlife
         delegate void PlantLifecycle(string message);
         event PlantLifecycle Notify;
 
+        private bool Access { get; set; } = true;
+
         public Plant()
         {
             Notify += Plant_Notify;
-            Random rnd = new Random();
-            int state = rnd.Next(2);
-            if (state == 0)
-                Grow();
-            else if (state == 1)
-                Eat();
         }
 
         private void Plant_Notify(string message)
@@ -27,12 +23,7 @@ namespace Wildlife
             Console.WriteLine(message);
         }
 
-        private void Eat()
-        {
-            Notify?.Invoke("Plant eaten by herbivore");
-        }
-
-        private void Grow()
+        public void Grow()
         {
             Notify?.Invoke("Palnt Grow");
         }

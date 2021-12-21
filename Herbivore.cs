@@ -14,12 +14,6 @@ namespace Wildlife
         public Herbivore()
         {
             Notify += Herbivore_Notify;
-            Random rnd = new Random();
-            int state = rnd.Next(2);
-            if (state == 0)
-                Search();
-            else if (state == 1)
-                Eat();
         }
 
         private void Herbivore_Notify(string message)
@@ -29,12 +23,12 @@ namespace Wildlife
 
         public void Search()
         {
-            Notify?.Invoke("Serch for plant");
+            Notify?.Invoke("Herbnivore serch for plant");
         }
 
         public void Eat()
         {
-            Notify?.Invoke("Eat plant");
+            Notify?.Invoke("Herbnivore eat plant");
         }
     }
 }

@@ -14,12 +14,6 @@ namespace Wildlife
         public Carnivore()
         {
             Notify += Carnivore_Notify;
-            Random rnd = new Random();
-            int state = rnd.Next(2);
-            if (state == 0)
-                Hunt();
-            else if (state == 1)
-                Eat();
         }
 
         private void Carnivore_Notify(string message)
