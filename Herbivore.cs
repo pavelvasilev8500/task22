@@ -1,34 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Wildlife
 {
     class Herbivore
     {
-        delegate void HerbivoreLifecycle(string message);
-        event HerbivoreLifecycle Notify;
-
         public Herbivore()
         {
-            Notify += Herbivore_Notify;
+            var plant = new Plant();
+            plant.Notify += Plant_Notify;
+            Plant_Notify("Herbnivore serch for plant");
+            Plant_Notify("Herbnivore eat plant");
         }
 
-        private void Herbivore_Notify(string message)
+        private void Plant_Notify(string message)
         {
             Console.WriteLine(message);
-        }
-
-        public void Search()
-        {
-            Notify?.Invoke("Herbnivore serch for plant");
-        }
-
-        public void Eat()
-        {
-            Notify?.Invoke("Herbnivore eat plant");
         }
     }
 }

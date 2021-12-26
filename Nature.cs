@@ -8,17 +8,11 @@ namespace Wildlife
 {
      class Nature
     {
-        Plant plant = new Plant();
-        Herbivore herbivore = new Herbivore();
-        Carnivore carnivore = new Carnivore();
-
         public Nature ()
         {
-            plant.Grow();
-            herbivore.Search();
-            herbivore.Eat();
-            carnivore.Hunt();
-            carnivore.Eat();
+            Plant plant = new Plant();
+            Herbivore herbivore = new Herbivore();
+            Carnivore carnivore = new Carnivore();
         }
     }
 }

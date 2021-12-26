@@ -1,31 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Wildlife
 {
     class Plant
     {
-        delegate void PlantLifecycle(string message);
-        event PlantLifecycle Notify;
-
-        private bool Access { get; set; } = true;
+        public delegate void Lifecycle(string message);
+        public event Lifecycle Notify;
 
         public Plant()
         {
-            Notify += Plant_Notify;
+            Notify += Plant_Lifecicle;
+            Plant_Lifecicle("Grow");
         }
 
-        private void Plant_Notify(string message)
+        private void Plant_Lifecicle(string message)
         {
             Console.WriteLine(message);
-        }
-
-        public void Grow()
-        {
-            Notify?.Invoke("Palnt Grow");
         }
     }
 }
