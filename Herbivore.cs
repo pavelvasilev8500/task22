@@ -4,17 +4,24 @@ namespace Wildlife
 {
     class Herbivore
     {
+        public delegate void Lifecycle();
+        public event Lifecycle Notify;
+
         public Herbivore()
         {
-            var plant = new Plant();
-            plant.Notify += Plant_Notify;
-            Plant_Notify("Herbnivore serch for plant");
-            Plant_Notify("Herbnivore eat plant");
+            Notify += OnEat;
         }
 
-        private void Plant_Notify(string message)
+        private void OnEat()
         {
-            Console.WriteLine(message);
+            var carnivore = new Carnivore();
+            carnivore.Eat();
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("Herbnivore eat plant");
+            Notify?.Invoke();
         }
     }
 }

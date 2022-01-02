@@ -11,8 +11,7 @@ namespace Wildlife
         public Nature ()
         {
             Plant plant = new Plant();
-            Herbivore herbivore = new Herbivore();
-            Carnivore carnivore = new Carnivore();
+            plant.Grow();
         }
     }
 }
